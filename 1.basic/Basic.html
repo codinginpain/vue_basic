@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vue basic 1</title>
+    <script src="https://cdn.jsdeliver.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="root">
+    <div v-if="like">liked</div>
+    <button v-else v-on:click="onClickButton">Like</button>
+</div>
+</body>
+<script>
+    const app = new Vue({
+        el: "#root",
+        data: {
+            like: flase,
+        },
+        methods: {
+            onClickButton() {
+                this.like = true; //this는 최초에 const 선언한 vue 객체를 보고있음
+            }                    // vue 객체안에 el, methods등 있는데, data안에 객체는 .data로
+        }                        // 접근 안하고 그냥 this.like로 바로 접근 하게 담겨져있음 (매우 신기하네)
+    })
+</script>
+</html>
